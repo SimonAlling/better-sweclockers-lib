@@ -13,11 +13,12 @@
   },
   "license": "MIT",
   "main": "dist/index",
+  "module": "dist/index",
+  "types": "dist/index",
   "scripts": {
     "lint": "tslint --project .",
-    "build": "npm run clean && tsc -d -p . && npm run rename && tsc --module CommonJS -p .",
+    "build": "npm run clean && cross-env TS_NODE_PROJECT=\"tsconfig-webpack.json\" webpack && mv src/*.d.ts dist",
     "clean": "rm -rf dist/*",
-    "rename": "renamer --force --find \"/\\.js$/\" --replace \".mjs\" \"dist/**\"",
     "prepublishOnly": "npm run verify",
     "test": "jest",
     "verify": "npm run lint && npm run build && npm test"
@@ -37,12 +38,26 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
+    "@types/node": "^10.12.18",
+    "@types/node-sass": "^3.10.32",
+    "@types/webpack": "^4.4.23",
+    "awesome-typescript-loader": "^5.2.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
     "jest": "^23.6.0",
+    "node-sass": "^4.11.0",
+    "node-sass-utils": "^1.1.2",
     "prettier": "^1.15.3",
     "renamer": "^1.1.1",
+    "sass-loader": "^7.1.0",
+    "to-string-loader": "^1.1.5",
     "ts-jest": "^23.10.5",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.7.0",
     "tslint": "^5.12.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
   },
   "dependencies": {
     "bbcode-tags": "^1.0.0",

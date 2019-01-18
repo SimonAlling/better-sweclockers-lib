@@ -5,11 +5,11 @@
             "dom"
         ],
         "sourceMap": true,
-        "target": "es2017",
+        "target": "es5",
         "declaration": true,
         "strictNullChecks": true,
         "noImplicitAny": true,
-        "module": "es2015",
+        "module": "commonjs",
         "removeComments": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,

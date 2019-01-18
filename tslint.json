@@ -8,13 +8,15 @@
         "arrow-parens": false,
         "max-line-length": false,
         "ordered-imports": [
-            true,
+            false,
             {
                 "import-sources-order": "case-insensitive",
                 "named-imports-order": "lowercase-last",
                 "grouped-imports": true
             }
         ],
+        "no-var-requires": false,
+        "whitespace": false,
         "object-literal-sort-keys": false,
         "semicolon": [true, "always"],
         "trailing-comma": {
