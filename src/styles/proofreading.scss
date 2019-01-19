@@ -1,0 +1,34 @@
+.#{getGlobal("CONFIG.CLASS.MARK.mistake")},
+.#{getGlobal("CONFIG.CLASS.MARK.verified")},
+.#{getGlobal("CONFIG.CLASS.MARK.any")} {
+    display: inline;
+}
+
+$invisibleBorder: 4px; // to make it easier to hover
+.#{getGlobal("CONFIG.CLASS.MARK.mistake")} {
+    &, .#{getGlobal("CONFIG.CLASS.MARK.any")} {
+        background-color: rgba(240, 70, 0, 1);
+        background-clip: content-box;
+        border: $invisibleBorder solid rgba(240, 70, 0, 0.1);
+        border-radius: 2px;
+        cursor: help;
+        margin: -$invisibleBorder;
+        position: relative; // so it gets in front of the text around it
+        transition: border-color 250ms 100ms
+    }
+
+    &:hover, .#{getGlobal("CONFIG.CLASS.MARK.any")}:hover {
+        border-color: rgba(240, 70, 0, 0.6);
+        transition-delay: 0ms;
+    }
+}
+
+.#{getGlobal("CONFIG.CLASS.MARK.verified")} {
+    &, .#{getGlobal("CONFIG.CLASS.MARK.any")} {
+        background-color: rgb(85, 220, 0);
+    }
+}
+
+.#{getGlobal("CONFIG.CLASS.MARK.any")} {
+    background-color: rgb(85, 130, 250);
+}
