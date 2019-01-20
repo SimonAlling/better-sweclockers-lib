@@ -43,7 +43,7 @@ const SASS_VARS = toSassDimensionRecursively({
 });
 
 export default {
-    mode: "development",
+    mode: "production",
     entry: {
         index: "./src/index.ts",
     },
