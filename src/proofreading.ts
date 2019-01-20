@@ -1,6 +1,6 @@
 import { compose } from "@typed/compose";
 import { proofreadWith, highlightWith } from "highlight-mistakes";
-import { RULES, PATTERN_DOPPELGANGERS } from "sweclockers-writing-rules";
+import { RULES, PATTERN_DOPPELGANGERS } from "@alling/sweclockers-writing-rules";
 
 import * as CONFIG from "./config";
 
