@@ -5,7 +5,7 @@ const processNode = processNodeWith(processText);
 it("can proofread some text", () => {
   const text = "4 GHz eller 4&nbsp;GHz";
   expect(processText(text)).toMatchInlineSnapshot(
-    `"4<pre class=\\"mistake\\" title=\\"Förslag: hårt mellanslag\\"> </pre>GHz eller 4<pre class=\\"verified\\" title=\\"Förslag: hårt mellanslag\\"><pre class=\\"any\\">&nbsp;</pre></pre>GHz"`
+    `"4<pre class=\\"mistake\\" title=\\"Förslag: hårt mellanslag\\"> </pre>GHz eller 4<pre class=\\"verified\\"><pre class=\\"any\\">&nbsp;</pre></pre>GHz"`
   );
 });
 
@@ -14,7 +14,7 @@ it("can process a text node", () => {
   p.textContent = "4 GHz eller 4&nbsp;GHz";
   processNode(p);
   expect(p.innerHTML).toMatchInlineSnapshot(
-    `"<span>4<pre class=\\"mistake\\" title=\\"Förslag: hårt mellanslag\\"> </pre>GHz eller 4<pre class=\\"verified\\" title=\\"Förslag: hårt mellanslag\\"><pre class=\\"any\\">&nbsp;</pre></pre>GHz</span>"`
+    `"<span>4<pre class=\\"mistake\\" title=\\"Förslag: hårt mellanslag\\"> </pre>GHz eller 4<pre class=\\"verified\\"><pre class=\\"any\\">&nbsp;</pre></pre>GHz</span>"`
   );
 });
 
