@@ -21,9 +21,9 @@ export function processNodeWith(f: StringTransformer): (node: Node) => void {
 export function markWith(className: string): (info: string | null) => StringTransformer {
     const isMistake = className === CONFIG.CLASS.MARK.mistake;
     return info => s => [
-        `<pre class="${className}"`,
+        `<span class="${CONFIG.CLASS.MARK.proofread} ${className}"`,
         (isMistake && info !== null ? ` title="Förslag: ${info}"` : ""),
-        `>${s}</pre>`,
+        `>${s}</span>`,
     ].join("");
 }
 

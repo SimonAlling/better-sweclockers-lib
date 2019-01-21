@@ -1,7 +1,5 @@
-.#{getGlobal("CONFIG.CLASS.MARK.mistake")},
-.#{getGlobal("CONFIG.CLASS.MARK.verified")},
-.#{getGlobal("CONFIG.CLASS.MARK.any")} {
-    display: inline;
+.#{getGlobal("CONFIG.CLASS.MARK.proofread")} {
+    white-space: pre;
 }
 
 $invisibleBorder: 4px; // to make it easier to hover
