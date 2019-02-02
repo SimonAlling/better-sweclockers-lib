@@ -1,6 +1,6 @@
 {
   "name": "@alling/better-sweclockers-lib",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Used in Better SweClockers.",
   "keywords": [
     "SweClockers",
@@ -60,7 +60,7 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
-    "@alling/sweclockers-writing-rules": "^3.0.1",
+    "@alling/sweclockers-writing-rules": "^3.0.2",
     "@typed/compose": "^1.0.0",
     "bbcode-tags": "^1.0.0",
     "highlight-mistakes": "^1.0.0",

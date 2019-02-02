@@ -43,3 +43,12 @@ it("can process superscript", () => {
     `"<span>några mm<span class=\\"proofread verified\\">²</span> eller mm<span class=\\"proofread verified\\">³</span></span>"`
   );
 });
+
+it("can process deceptive quantities", () => {
+  const p = document.createElement("p");
+  p.innerHTML = `Vid lanseringen av Windows&nbsp;7 år 2009 hade Windows&nbsp;Vista vuxit och blivit det näst största operativsystemet på marknaden, efter Windows&nbsp;XP.`;
+  processNode(p);
+  expect(p.innerHTML).toMatchInlineSnapshot(
+    `"<span>Vid lanseringen av Windows<span class=\\"proofread verified\\"><span class=\\"proofread any\\">&nbsp;</span></span>7 år 2009 hade Windows<span class=\\"proofread verified\\"><span class=\\"proofread any\\">&nbsp;</span></span>Vista vuxit och blivit det näst största operativsystemet på marknaden, efter Windows<span class=\\"proofread verified\\"><span class=\\"proofread any\\">&nbsp;</span></span>XP.</span>"`
+  );
+});
