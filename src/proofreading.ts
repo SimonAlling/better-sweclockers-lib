@@ -10,7 +10,7 @@ export function processNodeWith(f: StringTransformer, sup: StringTransformer): (
     return node => {
         if (node.nodeType === Node.TEXT_NODE) {
             const span = document.createElement("span");
-            span.innerHTML = f(node.textContent || "");
+            span.innerHTML = f(escapeHTML(node.textContent || ""));
             (node.parentNode as Node).replaceChild(span, node);
         } else if (node.nodeType === Node.ELEMENT_NODE) {
             if (node.nodeName === "SUP") {
@@ -50,3 +50,17 @@ export const processText = compose(
 );
 
 export const processNode = processNodeWith(processText, processSup);
+
+function replacer(found: `&` | `<` | `>` | `"` | `'`): string {
+    switch (found) {
+        case `&`: return "&amp;";
+        case `<`: return "&lt;";
+        case `>`: return "&gt;";
+        case `"`: return "&quot;";
+        case `'`: return "&#039;"; // https://stackoverflow.com/questions/2083754
+    }
+}
+
+function escapeHTML(html: string): string {
+    return html.replace(/[&<>"']/g, replacer);
+}

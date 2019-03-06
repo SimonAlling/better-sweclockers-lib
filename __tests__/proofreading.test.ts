@@ -52,3 +52,12 @@ it("can process deceptive quantities", () => {
     `"<span>Vid lanseringen av Windows<span class=\\"proofread verified\\"><span class=\\"proofread any\\">&nbsp;</span></span>7 år 2009 hade Windows<span class=\\"proofread verified\\"><span class=\\"proofread any\\">&nbsp;</span></span>Vista vuxit och blivit det näst största operativsystemet på marknaden, efter Windows<span class=\\"proofread verified\\"><span class=\\"proofread any\\">&nbsp;</span></span>XP.</span>"`
   );
 });
+
+it("can process HTML code correctly", () => {
+  const p = document.createElement("p");
+  p.innerHTML = `&lt;html&gt; och &lt;img&gt; och &lt;!DOCTYPE html&gt; och en schysst &amp;`;
+  processNode(p);
+  expect(p.innerHTML).toMatchInlineSnapshot(
+    `"<span>&lt;html&gt; och &lt;img&gt; och &lt;!DOCTYPE html&gt; och en schysst &amp;</span>"`
+  );
+});
